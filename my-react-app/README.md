@@ -19,7 +19,7 @@ This project recreates the feel of a **physical wall calendar** in a digital exp
 
 ## 🚀 Live Demo
 
-> *(Add your deployed link here — Vercel / Netlify)*
+> https://calendarwall.netlify.app/
 
 ---
 
@@ -227,8 +227,8 @@ This project is open-source and available under the MIT License.
 
 **Your Name**
 
-* GitHub: https://github.com/your-username
-* Portfolio: *(optional)*
+* GitHub: https://github.com/SagarSingh03
+* Portfolio : https://sagarsingh03.github.io/Portfolio-SagarSingh03/
 
 ---
 
