@@ -1,0 +1,184 @@
+/* ============================
+   CALENDAR NOTES
+   ============================ */
+
+.notes-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--cream-dark);
+  border-top: none;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) var(--radius-sm);
+  background: #fdf8f0;
+  position: relative;
+  overflow: hidden;
+  min-height: 130px;
+  animation: noteAppear 0.3s var(--ease-smooth) both;
+}
+
+/* ---- LINED PAPER EFFECT ---- */
+.notes-lines {
+  position: absolute;
+  inset: 0;
+  padding-top: 36px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.note-line {
+  height: 28px;
+  border-bottom: 1px solid rgba(160, 140, 120, 0.15);
+  margin: 0 16px;
+}
+
+/* ---- RED MARGIN LINE ---- */
+.margin-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 0;
+  border-left: 1.5px solid;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---- CONTENT AREA ---- */
+.notes-content {
+  flex: 1;
+  padding: 10px 14px 8px 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.note-area {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+}
+
+.note-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--parchment);
+}
+
+.note-label svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ---- TEXTAREA ---- */
+.note-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  min-height: 80px;
+  overflow: hidden;
+  caret-color: var(--accent);
+}
+
+.note-textarea::placeholder {
+  color: var(--parchment);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.note-textarea:focus {
+  outline: none;
+}
+
+/* ---- NO RANGE MESSAGE ---- */
+.no-range-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  min-height: 90px;
+  text-align: center;
+  opacity: 0.5;
+  animation: fadeSlideUp 0.3s var(--ease-smooth);
+}
+
+.no-range-icon {
+  font-size: 1.6rem;
+}
+
+.no-range-msg p {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  max-width: 200px;
+  line-height: 1.5;
+}
+
+/* ---- FOOTER ---- */
+.notes-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px 8px 48px;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--cream-dark);
+}
+
+.char-count {
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.saved-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  color: var(--sage);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  animation: fadeIn 0.4s both;
+}
+
+.saved-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================
+   MOBILE
+   ============================ */
+@media (max-width: 640px) {
+  .notes-content {
+    padding-left: 44px;
+  }
+
+  .notes-footer {
+    padding-left: 44px;
+  }
+
+  .note-textarea {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,244 @@
+/* ============================
+   CALENDAR HERO PANEL
+   ============================ */
+
+.hero-panel {
+  height: 100%;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--wood-dark);
+  overflow: hidden;
+}
+
+/* ---- CORNER TAG ---- */
+.corner-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--accent);
+  color: white;
+  padding: 6px 14px 6px 20px;
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* ---- IMAGE ---- */
+.hero-image-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: center left;
+  transition: transform 0.32s var(--ease-page), opacity 0.32s;
+}
+
+.hero-image-wrap.flipping-next {
+  animation: pageFlipOut 0.32s var(--ease-page) forwards;
+}
+
+.hero-image-wrap.flipping-prev {
+  animation: pageFlipIn 0.32s var(--ease-page) forwards;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-smooth);
+  transform: scale(1.04);
+  animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+.hero-img.loaded {
+  opacity: 1;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.08); }
+}
+
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--wood-mid) 0%, var(--wood-light) 100%);
+  position: absolute;
+  inset: 0;
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---- INFO SECTION ---- */
+.hero-info {
+  padding: 18px 22px 8px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  background: var(--wood-dark);
+}
+
+.hero-season {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 4px;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.hero-month {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  letter-spacing: -0.02em;
+}
+
+.hero-year {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--parchment);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.hero-divider {
+  height: 2px;
+  width: 48px;
+  margin: 0 auto;
+  border-radius: 1px;
+  opacity: 0.8;
+}
+
+/* ---- NAVIGATION ---- */
+.hero-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 22px 16px;
+  background: var(--wood-dark);
+}
+
+.hero-nav-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.hero-nav-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.1);
+  box-shadow: 0 2px 12px var(--accent)66;
+}
+
+.hero-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.hero-today-btn {
+  padding: 6px 18px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--cream);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.hero-today-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px var(--accent)66;
+  transform: translateY(-1px);
+}
+
+/* ---- TORN PAPER EDGE ---- */
+.torn-edge {
+  position: absolute;
+  bottom: 68px; /* above nav */
+  left: 0;
+  right: 0;
+  height: 20px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.torn-edge svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.15));
+}
+
+/* ============================
+   MOBILE
+   ============================ */
+@media (max-width: 640px) {
+  .hero-panel {
+    min-height: 260px;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .hero-image-wrap {
+    flex: 1;
+    min-height: 200px;
+  }
+
+  .hero-info {
+    width: 130px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .hero-month {
+    font-size: 1.3rem;
+  }
+
+  .hero-nav {
+    flex-direction: column;
+    width: 130px;
+    flex-shrink: 0;
+    padding: 8px 12px 12px;
+    gap: 8px;
+  }
+
+  .torn-edge {
+    display: none;
+  }
+}
