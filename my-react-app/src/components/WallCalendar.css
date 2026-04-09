@@ -1,30 +1,20 @@
-/* ============================
-   WALL CALENDAR MAIN LAYOUT
-   ============================ */
-
 .wall-calendar {
   width: 100%;
   max-width: 1080px;
-  background: var(--cream);
-  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  border-radius: 16px;
   box-shadow:
-    0 0 0 1px rgba(30,22,13,0.08),
-    0 4px 16px rgba(30,22,13,0.2),
-    0 20px 60px rgba(30,22,13,0.35),
-    0 -2px 0 var(--wood-light) inset;
+    0 0 0 1px rgba(139,92,246,0.15),
+    0 6px 20px rgba(0,0,0,0.5),
+    0 30px 80px rgba(0,0,0,0.7),
+    inset 0 -2px 10px rgba(139,92,246,0.2);
   overflow: hidden;
   position: relative;
-  animation: scaleIn 0.6s var(--ease-spring) both;
-  /* Subtle paper texture */
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
-    linear-gradient(135deg, #f8efe2 0%, #f2e5d0 50%, #ecddc8 100%);
-  background-blend-mode: multiply, normal;
+  animation: scaleIn 0.6s ease both;
 }
 
-/* ---- BINDING ---- */
 .calendar-binding {
-  background: var(--wood-mid);
+  background: linear-gradient(90deg, #1e1b4b, #312e81);
   height: 22px;
   display: flex;
   align-items: center;
@@ -32,37 +22,35 @@
   gap: 32px;
   position: relative;
   z-index: 10;
-  border-bottom: 2px solid var(--wood-dark);
+  border-bottom: 1px solid #4338ca;
 }
 
 .binding-ring {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--wood-dark);
-  border: 3px solid #6b4f30;
+  background: #0f172a;
+  border: 3px solid #8b5cf6;
   box-shadow:
-    inset 0 2px 4px rgba(0,0,0,0.4),
-    0 1px 3px rgba(0,0,0,0.3);
+    inset 0 2px 6px rgba(0,0,0,0.6),
+    0 0 8px rgba(139,92,246,0.6);
   position: relative;
   top: 4px;
-  transition: transform 0.3s var(--ease-spring);
+  transition: transform 0.3s ease;
 }
 
 .binding-ring:hover {
-  animation: bindingSwing 0.5s var(--ease-smooth);
+  transform: rotate(12deg) scale(1.1);
 }
 
-/* ---- BODY ---- */
 .calendar-body {
   display: grid;
   grid-template-columns: 340px 1fr;
   min-height: 560px;
 }
 
-/* ---- PANELS ---- */
 .panel-left {
-  border-right: 1px solid var(--cream-dark);
+  border-right: 1px solid rgba(139,92,246,0.2);
   overflow: hidden;
   position: relative;
 }
@@ -75,7 +63,6 @@
   overflow: hidden;
 }
 
-/* ---- MOBILE MONTH HEADER ---- */
 .mobile-month-header {
   display: none;
   align-items: center;
@@ -84,50 +71,48 @@
 }
 
 .mobile-month-title {
-  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--ink);
+  color: #e0e7ff;
 }
 
 .nav-btn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--cream-dark);
-  color: var(--ink-soft);
+  background: rgba(255,255,255,0.08);
+  color: #c7d2fe;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s var(--ease-smooth);
-  border: 1px solid var(--parchment);
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
 .nav-btn:hover {
-  background: var(--accent);
+  background: #8b5cf6;
   color: white;
-  border-color: var(--accent);
+  border-color: #8b5cf6;
   transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(139,92,246,0.6);
 }
 
-/* ---- SELECTION SUMMARY ---- */
 .selection-summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--accent-light);
-  border: 1px dashed var(--accent);
-  border-radius: var(--radius-md);
+  background: rgba(139,92,246,0.15);
+  border: 1px dashed #8b5cf6;
+  border-radius: 10px;
   padding: 8px 14px;
   font-size: 0.82rem;
-  color: var(--ink-soft);
+  color: #c7d2fe;
 }
 
 .sel-label {
-  font-family: var(--font-display);
   font-style: italic;
-  color: var(--ink-soft);
+  color: #c7d2fe;
   flex: 1;
 }
 
@@ -135,7 +120,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #8b5cf6;
   color: white;
   font-size: 0.7rem;
   display: flex;
@@ -146,11 +131,10 @@
 }
 
 .clear-btn:hover {
-  background: var(--rust);
+  background: #ef4444;
   transform: scale(1.15);
 }
 
-/* ---- NOTES WRAPPER ---- */
 .notes-wrapper {
   flex: 1;
   display: flex;
@@ -172,12 +156,12 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--ink-muted);
-  border: 1px solid var(--cream-dark);
+  color: #94a3b8;
+  border: 1px solid rgba(139,92,246,0.2);
   border-bottom: 1px solid transparent;
-  background: var(--cream);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  transition: all 0.2s var(--ease-smooth);
+  background: #0f172a;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.2s ease;
   position: relative;
   display: flex;
   align-items: center;
@@ -185,15 +169,15 @@
 }
 
 .note-tab:hover:not(:disabled) {
-  color: var(--accent);
-  background: var(--accent-light);
+  color: #8b5cf6;
+  background: rgba(139,92,246,0.15);
 }
 
 .note-tab.active {
-  color: var(--accent);
-  background: var(--cream);
-  border-color: var(--cream-dark);
-  border-bottom-color: var(--cream);
+  color: #8b5cf6;
+  background: #1e1b4b;
+  border-color: #8b5cf6;
+  border-bottom-color: #1e1b4b;
   font-weight: 700;
 }
 
@@ -206,18 +190,17 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
-  animation: dotPop 0.3s var(--ease-spring);
+  background: #22d3ee;
+  animation: dotPop 0.3s ease;
 }
 
-/* ---- FOOTER ---- */
 .calendar-footer {
-  background: var(--wood-mid);
+  background: linear-gradient(90deg, #1e1b4b, #312e81);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 24px;
-  border-top: 1px solid var(--wood-dark);
+  border-top: 1px solid #4338ca;
 }
 
 .footer-theme {
@@ -225,30 +208,23 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--parchment);
+  color: #c7d2fe;
   opacity: 0.7;
 }
 
 .footer-year {
-  font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--gold);
+  color: #22d3ee;
   letter-spacing: 0.05em;
 }
 
-/* ============================
-   RESPONSIVE — TABLET
-   ============================ */
 @media (max-width: 860px) {
   .calendar-body {
     grid-template-columns: 280px 1fr;
   }
 }
 
-/* ============================
-   RESPONSIVE — MOBILE
-   ============================ */
 @media (max-width: 640px) {
   .calendar-body {
     grid-template-columns: 1fr;
@@ -256,7 +232,7 @@
 
   .panel-left {
     border-right: none;
-    border-bottom: 1px solid var(--cream-dark);
+    border-bottom: 1px solid rgba(139,92,246,0.2);
   }
 
   .panel-right {
