@@ -228,7 +228,7 @@ This project is open-source and available under the MIT License.
 **Your Name**
 
 * GitHub: https://github.com/SagarSingh03
-* Portfolio : https://sagarsingh03.github.io/Portfolio-SagarSingh03/
+* Portfolio : https://sagar-portfolio-singh.netlify.app/
 
 ---
 
