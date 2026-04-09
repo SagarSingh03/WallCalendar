@@ -13,20 +13,20 @@ export default function CalendarGrid({ cal, theme }) {
   const totalDays = daysInMonth(currentYear, currentMonth);
   const startOffset = firstDayOfMonth(currentYear, currentMonth);
 
-  // Compute effective end for hover preview
+  
   const effectiveEnd = selecting && rangeStart && hoverDate ? hoverDate : rangeEnd;
 
   const gridRef = useRef(null);
 
   return (
     <div className={`calendar-grid-wrap ${isFlipping ? `flip-${animDir}` : 'flip-in'}`}>
-      {/* Month label (desktop only — mobile shows in header) */}
+      
       <div className="grid-month-label">
         <span className="gml-month">{MONTHS[currentMonth]}</span>
         <span className="gml-year">{currentYear}</span>
       </div>
 
-      {/* Day headers */}
+      
       <div className="day-headers">
         {DAYS_SHORT.map((d, i) => (
           <div key={d} className={`day-header ${i === 0 || i === 6 ? 'weekend' : ''}`}>
@@ -35,18 +35,18 @@ export default function CalendarGrid({ cal, theme }) {
         ))}
       </div>
 
-      {/* Day grid */}
+      
       <div
         ref={gridRef}
         className="day-grid"
         onMouseLeave={() => setHoverDate(null)}
       >
-        {/* Empty cells before month starts */}
+        
         {[...Array(startOffset)].map((_, i) => (
           <div key={`e-${i}`} className="day-cell empty" />
         ))}
 
-        {/* Day cells */}
+        
         {[...Array(totalDays)].map((_, idx) => {
           const day = idx + 1;
           const date = makeDate(currentYear, currentMonth, day);
@@ -94,7 +94,7 @@ export default function CalendarGrid({ cal, theme }) {
         })}
       </div>
 
-      {/* Legend */}
+      
       <div className="grid-legend">
         <span className="legend-item">
           <span className="legend-dot today-legend" />Today

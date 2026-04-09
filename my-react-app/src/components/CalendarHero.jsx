@@ -16,7 +16,7 @@ export default function CalendarHero({
       setDisplayMonth(month);
       setImgLoaded(false);
     }
-  }, [month]); // eslint-disable-line
+  }, [month]); 
 
   const seasonEmoji = getSeasonDecor(month);
 
@@ -39,7 +39,7 @@ export default function CalendarHero({
         />
         {!imgLoaded && <div className="hero-placeholder" />}
 
-        {/* Color overlay for theming */}
+        
         <div
           className="hero-overlay"
           style={{ background: `linear-gradient(to bottom, transparent 40%, ${theme.accent}55 100%)` }}

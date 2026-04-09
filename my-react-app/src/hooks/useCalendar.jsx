@@ -22,15 +22,15 @@ export function useCalendar() {
   const [rangeStart,   setRangeStart]   = useState(null);
   const [rangeEnd,     setRangeEnd]     = useState(null);
   const [hoverDate,    setHoverDate]    = useState(null);
-  const [selecting,    setSelecting]    = useState(false); // true = awaiting end date
+  const [selecting,    setSelecting]    = useState(false); 
   const [notes,        setNotes]        = useState(loadNotes);
-  const [animDir,      setAnimDir]      = useState('next'); // 'next' | 'prev'
+  const [animDir,      setAnimDir]      = useState('next'); 
   const [isFlipping,   setIsFlipping]   = useState(false);
 
-  // Persist notes
+  
   useEffect(() => { saveNotes(notes); }, [notes]);
 
-  // Navigate months with flip animation
+  
   const navigate = useCallback((dir) => {
     if (isFlipping) return;
     setAnimDir(dir);
@@ -54,18 +54,18 @@ export function useCalendar() {
     setCurrentMonth(today.getMonth());
   }, [today]);
 
-  // Date selection logic: click once = start, click again = end
+  
   const handleDayClick = useCallback((day) => {
     const clicked = makeDate(currentYear, currentMonth, day);
     if (!selecting || !rangeStart) {
-      // Start new selection
+    
       setRangeStart(clicked);
       setRangeEnd(null);
       setSelecting(true);
     } else {
-      // Finish selection
+      
       if (isSameDay(clicked, rangeStart)) {
-        // Deselect
+        
         setRangeStart(null);
         setRangeEnd(null);
         setSelecting(false);
@@ -83,8 +83,7 @@ export function useCalendar() {
     setHoverDate(null);
   }, []);
 
-  // Notes keyed by "YYYY-MM-DD|YYYY-MM-DD" for range notes,
-  // or "month-YYYY-MM" for monthly notes
+  
   const monthKey = `month-${currentYear}-${String(currentMonth+1).padStart(2,'0')}`;
 
   const rangeKey = rangeStart && rangeEnd
@@ -105,7 +104,7 @@ export function useCalendar() {
   const monthNote = notes[monthKey] || '';
   const rangeNote = rangeKey ? (notes[rangeKey] || '') : '';
 
-  // Collect all day-level notes for current month view
+  
   const getDayNote = useCallback((day) => {
     const key = toKey(makeDate(currentYear, currentMonth, day));
     return notes[key] || '';

@@ -9,7 +9,7 @@ export default function CalendarNotes({
   const monthRef = useRef(null);
   const rangeRef = useRef(null);
 
-  // Auto-resize textareas
+  
   function autoResize(ref) {
     if (!ref.current) return;
     ref.current.style.height = 'auto';
@@ -26,17 +26,17 @@ export default function CalendarNotes({
       className="notes-panel"
       style={{ borderColor: 'var(--cream-dark)' }}
     >
-      {/* Lined-paper effect */}
+      
       <div className="notes-lines" aria-hidden="true">
         {[...Array(10)].map((_, i) => (
           <div key={i} className="note-line" />
         ))}
       </div>
 
-      {/* Red margin line */}
+      
       <div className="margin-line" style={{ borderColor: theme.accent + '55' }} />
 
-      {/* Content */}
+      
       <div className="notes-content">
         {activeNote === 'month' ? (
           <div key="month" className="note-area animate-fade-in">
@@ -80,7 +80,7 @@ export default function CalendarNotes({
         )}
       </div>
 
-      {/* Footer with char count */}
+      
       <div className="notes-footer">
         <span className="char-count">{charCount} chars</span>
         {charCount > 0 && (

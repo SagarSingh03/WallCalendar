@@ -10,7 +10,7 @@ import './WallCalendar.css';
 export default function WallCalendar() {
   const cal = useCalendar();
   const theme = MONTH_THEMES[cal.currentMonth];
-  const [activeNote, setActiveNote] = useState('month'); // 'month' | 'range'
+  const [activeNote, setActiveNote] = useState('month'); 
 
   return (
     <div
@@ -20,11 +20,11 @@ export default function WallCalendar() {
         '--accent-light': theme.accentLight,
       }}
     >
-      {/* Top binding bar */}
+      
       <CalendarBinding />
 
       <div className="calendar-body">
-        {/* LEFT PANEL — Hero image */}
+        
         <div className="panel-left">
           <CalendarHero
             month={cal.currentMonth}
@@ -38,9 +38,9 @@ export default function WallCalendar() {
           />
         </div>
 
-        {/* RIGHT PANEL — Grid + Notes */}
+        
         <div className="panel-right">
-          {/* Month title on mobile */}
+          
           <div className="mobile-month-header">
             <button className="nav-btn" onClick={() => cal.navigate('prev')} aria-label="Previous month">‹</button>
             <span className="mobile-month-title">
@@ -51,7 +51,7 @@ export default function WallCalendar() {
 
           <CalendarGrid cal={cal} theme={theme} />
 
-          {/* Selection summary */}
+          
           {cal.rangeStart && (
             <div className="selection-summary animate-fade-up">
               <span className="sel-label">
@@ -63,7 +63,7 @@ export default function WallCalendar() {
             </div>
           )}
 
-          {/* Notes tabs */}
+          
           <div className="notes-wrapper">
             <div className="notes-tabs">
               <button

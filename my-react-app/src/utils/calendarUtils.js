@@ -1,6 +1,4 @@
-// ============================================================
-// Calendar utility functions
-// ============================================================
+
 
 export const MONTHS = [
   'January','February','March','April','May','June',
@@ -22,17 +20,16 @@ export const HOLIDAYS = {
   '12-31':'New Year\'s Eve',
 };
 
-/** Returns number of days in a month */
+
 export function daysInMonth(year, month) {
   return new Date(year, month + 1, 0).getDate();
 }
 
-/** Returns 0-indexed weekday of the 1st of the month */
 export function firstDayOfMonth(year, month) {
   return new Date(year, month, 1).getDay();
 }
 
-/** Formats a Date to YYYY-MM-DD string */
+
 export function toKey(date) {
   if (!date) return null;
   const y = date.getFullYear();
@@ -41,12 +38,12 @@ export function toKey(date) {
   return `${y}-${m}-${d}`;
 }
 
-/** Returns a Date from year, month (0-indexed), day */
+
 export function makeDate(year, month, day) {
   return new Date(year, month, day);
 }
 
-/** True if two dates are the same calendar day */
+
 export function isSameDay(a, b) {
   if (!a || !b) return false;
   return a.getFullYear() === b.getFullYear()
@@ -54,7 +51,7 @@ export function isSameDay(a, b) {
     && a.getDate() === b.getDate();
 }
 
-/** True if date is between start and end (inclusive) */
+
 export function isBetween(date, start, end) {
   if (!start || !end) return false;
   const t = date.getTime();
@@ -63,18 +60,18 @@ export function isBetween(date, start, end) {
   return t >= s && t <= e;
 }
 
-/** True if date is today */
+
 export function isToday(date) {
   return isSameDay(date, new Date());
 }
 
-/** Returns holiday label for a given day, or null */
+
 export function getHoliday(month, day) {
   const key = `${month + 1}-${day}`;
   return HOLIDAYS[key] || null;
 }
 
-/** Month-specific hero image URLs (beautiful, royalty-free Unsplash) */
+
 export const MONTH_IMAGES = [
   // Jan
   'https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=800&q=80',
@@ -102,7 +99,7 @@ export const MONTH_IMAGES = [
   'https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=800&q=80',
 ];
 
-/** Month accent colors for theming */
+
 export const MONTH_THEMES = [
   { accent: '#4a7fb5', accentLight: '#d0e4f5', label: 'Winter Blue' },      // Jan
   { accent: '#c0432a', accentLight: '#f5d5d0', label: 'Valentine Red' },    // Feb
